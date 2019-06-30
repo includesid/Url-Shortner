@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Bitly</title>
+</head>
+<body>
+    <h2>Short your URL</h2>
+    <form method="POST">{% csrf_token %}
+        {{ urlform.as_p }}
+        <input type="submit" value="CLICK ME">
+    </form>
+</body>
+</html>

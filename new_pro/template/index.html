@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Goto</title>
+</head>
+<body>
+{% for obj in objs %}
+    {{ obj.id }}
+    <h2>{{ obj.long_url }}</h2>
+    <a href="{% url 'redirect' obj.shortcode %}" target="blank">https://go.to/{{ obj.shortcode }}</a>
+    <h2>{{ obj.created_date }}</h2>
+    {% if request.user.is_authenticated %}
+        <button><a href="{% url 'edit' obj.pk %}">Edit</a></button>
+        <button><a href="{% url 'delete' obj.pk %}">delete</a></button>
+    {% endif %}
+    <hr>
+{% endfor %}
+</body>
+</html>
